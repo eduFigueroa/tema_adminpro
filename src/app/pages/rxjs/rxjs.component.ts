@@ -73,7 +73,7 @@ export class RxjsComponent implements OnInit, OnDestroy {
 
       //  realiza el filtro de informacion que se va a mostrar, en este ejemplo se estan filtrando los pares.
       .filter( (valor, index) => {
-        if ( valor % 2 === 1){
+        if ( valor % 2 === 1) {
             // impar
             return true;
         } else {

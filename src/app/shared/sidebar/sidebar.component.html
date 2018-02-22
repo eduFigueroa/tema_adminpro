@@ -13,7 +13,7 @@
                         <li><a href="javascript:void()">Mi Dashboard</a></li>
                         <li><a href="javascript:void()">Inbox</a></li>
                         <li><a routerLinkActive="active" routerLink="/account-settings">Configuración</a></li>
-                        <li><a routerLink="/login">Cerrar sesión</a></li>
+                        <li><a (click)="_usuarioService.logout()" class="pointer">Cerrar sesión</a></li>
                     </ul>
                 </li>
                 <li class="nav-devider"></li>
