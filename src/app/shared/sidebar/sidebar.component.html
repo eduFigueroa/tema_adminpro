@@ -7,10 +7,10 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="user-profile">
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="../assets/images/users/perfil.jpg" alt="user" /><span class="hide-menu">Eduardo Figueroa </span></a>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img [src]="usuario.img | imagen" alt="user" /><span class="hide-menu">{{usuario.nombre}} </span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="javascript:void()">Mi Perfil </a></li>
-                        <li><a href="javascript:void()">Mi Dashboard</a></li>
+                        <li><a routerLinkActive="active" routerLink='/perfil'>Mi Perfil </a></li>
+                        <li><a routerLinkActive="active" routerLink="/dashboard">Mi Dashboard</a></li>
                         <li><a href="javascript:void()">Inbox</a></li>
                         <li><a routerLinkActive="active" routerLink="/account-settings">Configuración</a></li>
                         <li><a (click)="_usuarioService.logout()" class="pointer">Cerrar sesión</a></li>
@@ -18,7 +18,6 @@
                 </li>
                 <li class="nav-devider"></li>
                 <li class="nav-small-cap">PERSONAL</li>
-
 
                 <li *ngFor="let menu of _sidebar.menu">
                     <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i [class]="menu.icono"></i><span class="hide-menu">{{menu.titulo}}<span class="label label-rouded label-themecolor pull-right">{{menu.submenu.length}}</span></span></a>
