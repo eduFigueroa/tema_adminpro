@@ -106,8 +106,11 @@ guardarStorage(id:string, token:string, usuario: Usuario){
 
     return this.http.put(url, usuario)
                .map((resp:any) =>{
-                 let usuarioDB: Usuario = resp.usuario;
-                this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+                 if(usuario._id === this.usuario._id){
+                  let usuarioDB: Usuario = resp.usuario;
+                  this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+                 }
+
                 swal("Usuario Actualizado", usuario.nombre, "success");
               return true;
             });
@@ -127,5 +130,29 @@ this._subirArchivoService.subirArchivo(archivo, 'usuarios', id)
         console.log(resp);
 
       });
+}
+
+cargarUsuarios(desde: number = 0){
+  let url = URL_SERVCIOS +'/usuario?desde='+ desde;
+
+  return this.http.get(url);
+}
+
+buscarUsuarios(termino:string){
+  let url = URL_SERVCIOS + '/busqueda/coleccion/usuarios/' + termino;
+  return this.http.get(url)
+                  .map ((resp: any) => resp.usuarios);
+}
+
+borrarUsuario(id: string){
+  let url = URL_SERVCIOS +'/usuario/' + id;
+  url += '?token='+ this.token;
+return this.http.delete(url)
+            .map(resp =>{
+              swal("El usuario ha sido eliminado", {icon: "success",
+              });
+              return true;
+            })
+
 }
 }

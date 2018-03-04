@@ -1361,12 +1361,12 @@ File: scss
 
 .container-fluid {
     padding: 25px 25px;
-    background-color: #000000;
+    /* background-color: #000000; */
 }
 
 .card {
     margin-bottom: 30px;
-    background-color: #000000;
+    /* background-color: #000000; */
 }
 
 .card .card-subtitle {
